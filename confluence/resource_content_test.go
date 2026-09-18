@@ -16,6 +16,7 @@ func TestCreateContentRequestFromResourceData(t *testing.T) {
 		"body":   "Content body",
 		"title":  "Content title",
 		"parent": "654321",
+		"subtype": "page",
 	})
 
 	body, err := json.Marshal(createContentRequestFromContent(contentFromResourceData(data)))
@@ -55,8 +56,8 @@ func TestCreateContentRequestFromResourceData(t *testing.T) {
 	if request.Body.Value != "Content body" {
 		t.Fatalf("body value = %q, want %q", request.Body.Value, "Content body")
 	}
-	if request.Subtype != "live" {
-		t.Fatalf("subtype = %q, want %q", request.Subtype, "live")
+	if request.Subtype != "page" {
+		t.Fatalf("subtype = %q, want %q", request.Subtype, "page")
 	}
 }
 
